@@ -26,6 +26,8 @@ It prints the exact next step; record answers with `--set` (see its `--help`). *
 ## Step 1: Understand them (3 questions at most)
 Don't re-ask anything their first message already answered; confirm it instead.
 
+**Model check (before 1a, one line, only if it applies):** if you are not a Claude Sonnet-class model or stronger (e.g. a small or "mini/luna"-type model), say once: "Tip: these helpers work best with Claude Sonnet or stronger. Click the model name at the bottom of the chat to switch, then say 'Onboard a site' again in a new chat." Then continue normally.
+
 **1a.** (send the options as a numbered list, one per line) "Hi! I'm going to set you up with an AI employee for your directory. I'll do the technical parts. First: where are you at with your directory? 1. Just an idea / still planning 2. Building it now 3. It's live 4. It's live and making money" → save `stage` (idea | building | live | earning).
 
 **1b.** (numbered list) "What do you want most right now? 1. More traffic 2. Accurate listings (hours, phones, closed businesses) 3. Leads and money from businesses 4. Richer listing pages (more useful than Google) 5. Not sure, suggest something" → save `goal` (traffic | accurate_listings | leads | richer_pages | not_sure). Infer the money model (traffic → ads, leads → leads) and state it in the plan; ask "How does it make money?" only if it changes the plan.

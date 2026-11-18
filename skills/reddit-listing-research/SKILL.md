@@ -140,7 +140,7 @@ python3 $S/chain_pages.py                  (chains with 5+ listings; --min 3 for
 python3 $S/own_pages.py --site <the directory's URL>
 ```
 For each pilot listing it prints what the owner's page already shows per field (every text block: sidebars and info boxes too), then **TEMPLATE LINES**: sentences on 2+ sampled pages, i.e. on every page of that type. Note:
-- **Template lines first:** check each one with a fact in it (times, ages, pay, what to bring) against the VERIFIED values by meaning. A wrong template line is the biggest fix (it touches every page): report it as "appears on every listing page", ranked above single-page fixes.
+- **Template lines first:** check each one with a fact in it (times, ages, pay, what to bring) against the VERIFIED values by meaning. A wrong template line is the biggest fix (it touches every page): say "appears on every listing page" ONLY when own_pages.py found it on all sampled pages; otherwise "on <n> of <m> sampled pages". Ranked above single-page fixes. Check every template line that states a number or rule (visit length, how often, days between visits, pay, age), not just the first few. A line that is supported for some cases (e.g. first-month bonus pay) is a "reword and source it" fix ("BioLife new donors: up to $775 in the first month"), never "remove": compare like with like (new-donor pay vs regular pay).
 - **Fill targets:** labels the page shows with no value ("No bonus info reported yet").
 - **Page fixes:** only when the MEANING conflicts, not the wording ("no appointment needed" and "walk-ins accepted" agree; "2 to 2.5 hours" vs "1 to 2 hours" conflict). Template sentences that contradict a verified fact (page: "No appointment is necessary. Walk-ins are welcome."; the business: "Download our app to see available appointments"). Quote both. Not found in the sitemap → `--url <id>=<url>`.
 
@@ -172,7 +172,7 @@ Dry run first, show the owner, then add `--apply`. Only empty cells, one update 
 ```
 <Site>: listing research (<10% preview | full run>)
 
-Reach: <CHAIN REACH TOTAL line in plain words: "<N> company-wide facts fill about <X> details across <Y> of your listings">.
+Reach: <CHAIN REACH TOTAL line in plain words: "<N> company-wide facts fill about <X> details across <Y> of your listings">, then one short line per chain with the math ("<Chain>: <listings> listings x <facts> facts").
 
 What it means for you: of the top <M> TOPICS people raise before choosing a <business> (count topics, never conversations), your listing pages can answer <N> from the businesses' own websites (<which>). <Which top topics can't be filled from websites and why, e.g. "pay and bonuses change by location and month and aren't on center pages"> (good article or community-report topics instead).
 
@@ -183,7 +183,7 @@ One finished listing:
 
 What people ask most (<conversations> conversations, <on-topic share> on topic): <5 to 8 lines, one quote each>
 
-Fixes for your own pages: <up to 3, template lines first ("appears on every listing page"): what your page says vs what the business says, both quoted, by meaning>
+Fixes for your own pages: <up to 3, template lines first ("appears on every listing page" only if on all sampled pages, else "on n of m"): what your page says vs what the business says, both quoted, by meaning>
 
 Proof: <numbered verified values: listing, detail, value, quote, link>. <unknowns and blocked sites in one line>
 

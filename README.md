@@ -1,94 +1,126 @@
-# directory-ops: an AI employee for your directory website
+# directory-ops
 
-directory-ops is a set of ready-made skills for **Hermes Agent** (an AI assistant you rent on Hostinger).
-Once installed, Hermes keeps your listings accurate, finds what to add to your pages, brings traffic, and turns leads into money.
-You chat with it in plain English. It asks before it changes anything.
+### An AI employee for your directory website
 
-> Final public GitHub address: TBD. Links below use `Directoryops/directory-ops` as a placeholder.
+Keeps your listings accurate, finds the content that brings traffic, and turns leads into money, while you sleep.
+It runs on **Hermes Agent** (an AI assistant you host on Hostinger), you talk to it in plain English, and **it asks before it changes anything.**
 
-## Who it's for
+<p>
+  <a href="HOSTINGER_LINK"><img src="https://assets.hostinger.com/vps/deploy.svg" alt="Deploy Hermes on Hostinger" height="40"></a>
+</p>
 
-People who run a directory (car washes, dentists, venues, anything with listings) or are building one, and want the boring work done without hiring anyone. No coding needed.
+**No coding. About 15 minutes to set up. Works with almost any directory** (plasma centers, car washes, venues, dentists, job boards, anything with listings).
 
-## What it can do
+---
 
-Hermes recommends the right ones for where you are. You can also just ask for any of them.
+## What you get
 
-**Start: make your directory worth visiting**
-- **Listing research:** reads real Reddit conversations to learn what people want to know before choosing a business, then fills those details in from each business's own website, with proof.
-- **Tool ideas:** finds simple calculators and tools people search for in your niche (like a cost estimator), so you can build pages that bring traffic.
-- **Article ideas:** finds the few articles actually worth writing, backed by evidence, and writes them with your own data.
+You install it once, say **"Onboard a site"**, and Hermes:
 
-**Grow: keep it accurate and get found**
-- **Listing check:** re-checks your listings every week (open or closed, hours, phone, website) and fixes what changed.
-- **Broken links and SEO errors:** finds broken links, dead old pages, and pages competing for the same search, and gives you the exact fix.
-- **Internal links:** finds the exact sentences where links to your most important pages should go.
-- **Page copy refresh:** rewrites the intro text on your city or category pages every few months, using real facts from your listings.
-- **Keep pages up to date:** re-checks pages with changing facts (fees, prices, policies) against official sources.
+1. **Looks at your site** (pages, listings, blog, what's broken) and tells you what it sees, with real numbers.
+2. **Writes a game plan for your goal** (more traffic, accurate listings, leads, richer pages) and shows you every helper it can run. **You pick.**
+3. **Sets up each helper you picked**, one at a time: shows you exactly how it works, asks a few questions about *your* site, learns your rules, and shows you a **real sample of its work** before anything runs.
+4. **Runs them on a schedule** and sends you a short summary. Anything that would change your site waits for your "approve".
 
-**Earn: turn traffic into money**
-- **Lead routing:** sends quote requests from your site to the right business (first one free), with follow ups.
-- **Inbox helper:** reads your site's inbox, ignores spam, and handles "add my business" and "this place closed" emails.
+## The helpers
 
-**Helpers:** "check my setup" tests that everything is connected; "review changes" shows what's waiting for your OK.
+| | Helper | What it does for you | How often |
+|---|---|---|---|
+| 🗂️ | **Keep listings accurate** | Re-checks hours, phones, websites and closures against each business's own page and Google. When a chain changes hours everywhere, it fixes all of them in one sweep. Flags broken website links and wrong hours your pages show Google. | Weekly |
+| 🔎 | **What customers ask** | Reads real Reddit conversations to learn what people want to know before choosing a business, then fills those details into your listings from each business's own website, with a quote as proof. | Once, then for new listings |
+| 📬 | **Read your site's inbox** | Sorts your site's emails, ignores spam, and turns "add my business" or "this place closed" into ready-to-approve changes. | Weekly |
+| ✍️ | **Articles people search for** | Finds the few articles worth writing (real searches + your data that nobody else has), shows you a ranked list, writes the one you pick, and shows a preview **in your site's own design**. | Up to weekly |
+| 🔗 | **Links between pages** | Finds where links to your money pages naturally fit (exact sentence + link text), broken pages your site should have, and template fixes. Counts menus and breadcrumbs too, so it never suggests what you already have. | Monthly |
+| 🧹 | **SEO errors and broken links** | Crawls your site for broken links, old addresses that now 404, pages fighting for the same search, duplicate titles and thin pages, and hands you one ready-to-paste fix. | Monthly |
+| 📝 | **Fresh page text** | Rewrites the intro text on your city, state or category pages with real facts from your listings. Never touches titles or URLs. | Every few months |
+| 📅 | **Keep facts current** | Watches pages with facts that change (fees, prices, rules, calculators) and updates them from official sources. | Per page |
+| 🧮 | **Free tool ideas** | Finds the simple calculators and tools people search for in your niche, so you can build pages that bring traffic. | Every few months |
+| 💸 | **Pass on leads** | Sends quote requests from your site to the right business (first one free), finds missing business emails on their websites, follows up, and reroutes when there's no answer. Drafts first. | Every couple of hours |
 
-## Quick start (3 steps)
+**Plus the setup helpers:** step-by-step setup guides, "check my setup", and "review changes" (see and approve everything waiting for you).
 
-1. **Get Hermes on Hostinger:** [Hostinger Hermes Agent link TBD]. Choose the **Hermes Agent WebUI** app.
-2. **Install the skills:** open Hermes chat and paste the install message from [INSTALL.md](INSTALL.md). It takes about 2 minutes.
-3. **Start a new chat and say: "Onboard a site".** Hermes asks where you are, what you want help with, looks at your site, and suggests 2 or 3 things to start with. It shows you a sample before anything runs.
+## Quick start
 
-## What it costs to run
+1. **Get Hermes on Hostinger.** Click the button above and choose the **Hermes Agent** app.
+2. **Pick a smart model.** In the Hermes chat, click the model name at the bottom and choose **Claude Sonnet** (newest version). These helpers follow detailed playbooks; smaller models skip steps.
+3. **Install.** Start a new chat and paste the install message from **[INSTALL.md](INSTALL.md)** (about 2 minutes).
+4. **Start.** Start another new chat and say:
+
+```
+Onboard a site
+```
+
+That's it. Hermes walks you through the rest, one question at a time.
+
+## How it works
+
+```mermaid
+flowchart LR
+    A["You: 'Onboard a site'"] --> B["Hermes looks at your site"]
+    B --> C["Game plan: you pick the helpers"]
+    C --> D["Each helper: how it works, your rules, a real sample"]
+    D --> E["Runs on a schedule"]
+    E --> F["Changes wait for your 'approve'"]
+```
+
+Your website stays where it is. Hermes reads your site and your listings (Supabase, a GitHub repo, or a spreadsheet), proposes changes, and only applies what you approve. When something needs your site's code changed, it writes a ready-to-paste prompt for Claude Code or your developer.
+
+## What it costs
 
 - **Hermes on Hostinger:** your monthly plan.
-- **AI credits:** most runs cost a few cents of AI credits. A weekly listing check on a small directory, or one article, is roughly 5 to 10 cents. Hermes tells you after the first runs.
-- **Data:** free sources by default (Google search and Maps pages, Reddit's public archive, your own site).
-- **Optional:** if you already pay for Ahrefs, Semrush or DataForSEO, some skills can use them. Never required.
+- **AI usage:** comes out of your Hostinger AI credits. In our tests, onboarding a site on Claude Sonnet used about **2 to 3 credits** (one time). Scheduled helpers cost a small amount per run; how much depends on your site's size and how many helpers you run. Check your balance after the first week.
+- **Web searches:** a few Oxylabs credits per run (onboarding a site used about 20).
+- **Everything else is free:** Google pages, the public Reddit archive, your own site. Paid SEO tools (Ahrefs, Semrush) are optional, never required.
 
-## Safety
+> **Tip:** the default model is cheaper, but it makes more mistakes on these playbooks. Claude Sonnet usually costs less overall because it gets it right the first time.
 
-- **Nothing changes on your site or database without your approval.** The first run of every job only shows proposals. You say "approve 1 and 3" (or "approve all").
-- **Your keys never go in the chat.** You add them in Hostinger's settings (hPanel → your Hermes app → Environments). Hermes only checks that they're there.
-- **Nothing gets deleted.** Closed businesses get marked closed, never removed.
-- **Every change is logged** with the old value, so anything can be undone.
-- **Scheduled jobs** run on their own (for example every Monday) and send you a short summary.
+## Safe by default
 
-## What's supported
+- ✅ **Nothing changes without your OK.** Proposals first; you reply "approve 1, 3" or "approve all".
+- 🔑 **Keys never go in the chat.** You add them in Hostinger's settings; Hermes only checks they're there.
+- 🗑️ **Nothing gets deleted.** Closed businesses are marked closed, never removed.
+- ↩️ **Every change is logged** with the old value, so anything can be undone.
+- 📨 **No emails go out on their own** until you turn that on. Drafts first.
+- 👀 **Previews are private:** a link that's hidden from Google and deletes itself after 72 hours.
+
+## Works with
 
 | Your setup | What works |
 |---|---|
-| Listings in **Supabase** (a popular online database) | Everything |
-| Listings in **your site's code on GitHub** (data files) | Everything; changes arrive as a "pull request" you click to accept |
-| **WordPress**, Google Sheets, Airtable | Website jobs (SEO, links, articles, tools, research) work now; listing edits are coming |
-| No website yet | Listing research, tool ideas and article ideas, to plan it right |
+| Listings in **Supabase** | Everything |
+| Listings in **your site's code on GitHub** (data files) | Everything; changes arrive as a pull request you click to accept |
+| **WordPress**, Google Sheets, Airtable | Website helpers (SEO, links, articles, tools, research); listing edits coming |
+| No website yet | Research, tool ideas and article ideas, to plan it right |
 
 ## FAQ
 
-**Do I need to know how to code?** No. You chat with Hermes. When a change needs your website's code, Hermes writes a ready-to-paste instruction for Claude Code or your developer.
+**Do I need to know how to code?** No. You chat with Hermes. When your site's code needs a change, it writes the instruction for you.
 
 **Will it break my site?** It can't change anything until you approve it, and every change can be undone.
 
-**How long does setup take?** Install is about 2 minutes. Onboarding a site is about 10 to 15 minutes of chatting.
+**How long does setup take?** Install about 2 minutes. Onboarding a site about 15 minutes of chatting.
 
-**Can I use it for more than one site?** Yes. Say "Onboard a site" again for each one.
+**More than one site?** Yes. Say "Onboard a site" again for each one.
 
-**What if I don't know what I want help with?** Say "not sure". Hermes walks you through each skill in one sentence and recommends based on where you are.
+**Not sure what you need?** Say "not sure". Hermes explains each helper in one sentence and recommends based on where you are.
 
-**Does it email businesses on its own?** Only if you turn that on. By default it writes drafts for you to approve.
+**Can it make images?** Not out of the box: Hermes needs a separate image service for that. Articles work great without.
 
-**What's an "environment variable"?** A private setting in Hostinger where secret keys live, so they never appear in the chat. Hermes tells you exactly which one to add and where to click.
-
-**Can I stop or change a job?** Yes, just tell Hermes: "pause the listing check", "run it every two weeks", "ask me before every change".
+**Can I pause or change a helper?** Yes, just say it: "pause the listing check", "run it every two weeks", "ask me before every change".
 
 ## Troubleshooting
 
 | What you see | Fix |
 |---|---|
-| Hermes says it can't see your key | After adding a key, click **Save & redeploy** (that restarts Hermes), then start a **new chat** and say "continue". Old chats don't see new keys. |
-| "401" or "key is wrong" | The key was copied wrong. Copy it again from the original site (Supabase, Gmail…), edit the value in hPanel, click Save & redeploy, new chat. |
-| "I can't edit your website" | Hermes can't change your site's code itself. It gives you a prompt to paste into Claude Code (or send to your developer). |
-| A job didn't run on schedule | Say "Run check my setup". It lists your scheduled jobs and their last run. |
-| Results look wrong | Reply with what's wrong in plain words. Hermes saves it as a rule for next time. Nothing was changed without your OK. |
+| Hermes can't see a key you added | In Hostinger, click **Save & redeploy**, then start a **new chat** and say "continue". Old chats don't see new keys. |
+| "401" or "key is wrong" | The key was copied wrong. Copy it again, edit it in Hostinger, Save & redeploy, new chat. |
+| "Your site's security blocks simple scanners" | Hermes switches to its web reader automatically. For full-site checks it gives you a 2-minute guide to let it in. |
+| A job didn't run | Say "Run check my setup". It lists your scheduled jobs and their last run. |
+| Results look wrong | Say what's wrong in plain words. Hermes saves it as a rule for next time. |
+
+## Updating
+
+New versions come out over time. Start a new chat and paste the update message from [INSTALL.md](INSTALL.md#updating-later). Your settings and notes are never touched.
 
 ## License
 

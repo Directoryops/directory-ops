@@ -2,6 +2,10 @@
 
 You need: Hermes Agent WebUI running on Hostinger. That's it. No keys, no GitHub account.
 
+## Step 0: Pick a smart model (10 seconds, important)
+
+At the bottom of the Hermes chat, click the model name and choose **Claude Sonnet** (newest version) or stronger. These helpers follow detailed playbooks and check real data; smaller models skip steps and make mistakes. Sonnet costs a bit more per message than the default but gets it right the first time, which usually costs less overall. The model you pick applies to the chat you're in, so pick it in each new chat (or set it as your default).
+
 ## Step 1: Install
 
 Open your Hermes chat, start a **new chat**, and paste this whole message:
