@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Sunrise Car Wash",
+    "phone": "(555) 010-1000",
+    "open": true
+  },
+  {
+    "id": 2,
+    "name": "Bubbles Express",
+    "phone": null,
+    "open": true
+  }
+]

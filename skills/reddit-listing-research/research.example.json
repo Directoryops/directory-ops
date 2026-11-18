@@ -1,0 +1,94 @@
+{
+  "directory_name": "Example Funeral Home Directory",
+  "directory_url": "https://example.com",
+  "business_type": "funeral homes and cremation providers",
+  "decision": "choosing a funeral home or cremation provider for a family member who just died",
+  "who_decides": "adult children and spouses, usually under time pressure",
+  "location": "Los Angeles, CA",
+  "monetization": "lead gen",
+  "company_facts": "ask",
+  "subreddits": {
+    "focused": [
+      "askfuneraldirectors",
+      "funeral"
+    ],
+    "local": [
+      "AskLosAngeles",
+      "LosAngeles"
+    ]
+  },
+  "local_title_words": [
+    "funeral",
+    "cremation",
+    "mortuary"
+  ],
+  "business_words": [
+    "funeral",
+    "mortuary",
+    "cremat",
+    "cemeter",
+    "burial"
+  ],
+  "decision_words": [
+    "price",
+    "cost",
+    "$",
+    "quote",
+    "expensive",
+    "cheap",
+    "afford",
+    "recommend",
+    "choos",
+    "which",
+    "compare",
+    "worth",
+    "scam",
+    "ripped",
+    "upsell",
+    "overcharg",
+    "pressur",
+    "bad experience",
+    "complain",
+    "review",
+    "is this normal",
+    "is this reasonable",
+    "first time",
+    "what should",
+    "questions to ask",
+    "hidden",
+    "fee",
+    "bill",
+    "refus",
+    "won't let",
+    "wrong",
+    "lost"
+  ],
+  "exclude_words": [
+    "cat",
+    "dog",
+    "pet",
+    "kitten",
+    "puppy",
+    "mortuary school",
+    "salary",
+    "hiring",
+    "job interview"
+  ],
+  "page_hint_words": [
+    "cremation",
+    "burial",
+    "price list",
+    "gpl",
+    "viewing"
+  ],
+  "listings_file": "data/listings.csv",
+  "limits": {
+    "max_pages_per_sub": 40,
+    "min_comments": 4,
+    "max_threads": 250,
+    "max_pages_per_site": 5,
+    "pilot_listings": 5,
+    "max_listings_per_run": 200,
+    "max_ai_spend_usd": 10
+  }
+}

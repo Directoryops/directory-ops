@@ -1,0 +1,9 @@
+# car washes
+- id: 1
+  name: Sunrise Car Wash
+  phone: "(555) 010-1000"
+  tags:
+    - express
+- id: 2
+  name: Bubbles Express
+  phone:

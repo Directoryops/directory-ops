@@ -1,0 +1,208 @@
+# REFERENCE ONLY. onboard-site writes a fresh sites/<slug>.yaml with just the basics and the sections for the jobs
+# you chose; never copy this whole file. Use it to look up key names and what they mean.
+# Never put keys here, only env var NAMES. Each job's settings_done flips to true after it asks its setup questions once.
+
+slug: exd                    # one short lowercase slug for files: sites/exd.yaml, notes/exd/. Env var names use it UPPERCASED (EXD_SUPABASE_KEY)
+name: "Example Directory"    # the site's name as visitors see it
+domain: example.com
+url: https://example.com     # the live site; its domain is never used as evidence
+stage: growing               # new | growing | lost_rankings (onboarding asks; jobs are more careful on lost_rankings)
+search_console: no           # yes | no (onboarding asks)
+
+money:
+  primary: lead_gen          # lead_gen | affiliate | display_ads | featured_listings | job_board | traffic
+  secondary: [featured_listings]
+  notes: ""                  # one line in the owner's words, e.g. "ads now, featured listings later"
+
+repo: your-github-user/example-directory
+
+database:
+  type: supabase
+  url: https://yourproject.supabase.co   # not secret, goes right here
+  key_env: EXD_SUPABASE_KEY              # the EXACT env var name the owner used in hPanel → Environments (suggested: slug uppercased + _SUPABASE_KEY)
+  listings_table: listings               # change to your table name
+  id_column: id                          # change to your column name or delete this line
+  # Use the REAL column names from your table (Supabase → Table Editor → your listings table → the column headers).
+  # onboard-site reads them for you with db.py select --limit 3. A wrong name makes every job skip or fail.
+  # Every column name below: change to your column name or delete this line. Onboarding fills these from your real table
+  # and check-my-setup confirms each one exists. Never keep a name your table doesn't have.
+  closed_column: is_closed               # change to your column name or delete this line (e.g. permanently_closed, closed)
+  updated_at_column: updated_at          # change to your column name or delete this line
+  touch_updated_at: false                # true = approved changes move "last updated" (review-changes passes --touch)
+
+key_fields: [name, phone, website, address, hours, description]   # change to your column names or delete any you don't have; listing-check reports how many listings miss each
+
+inbox:
+  address: hello@example.com
+  imap_host: imap.gmail.com
+  password_env: EXD_MAIL_PASSWORD        # Gmail app password (16 letters), set in hPanel → Environments
+  connected: false
+
+search_console:
+  property: sc-domain:example.com
+  connected: false
+
+approvals:
+  mode: ask_every_time       # ask_every_time | auto_approve_safe  (proposals go to notes/<slug>/pending.md; review with review-changes)
+  notify: webui              # webui | telegram | email
+
+listing_check:
+  settings_done: false
+  batch_size: 20                 # listings per run; full pass in weeks = active listings ÷ batch size
+  min_days_between_checks: 25
+  fields: [hours, phone, website, address]   # details to keep current
+  auto_apply: false              # true = write confirmed changes; false = proposals in notes/<slug>/pending.md
+  autonomous: false              # true = no chat messages, summary goes to the report file
+  auto_apply_fields: [hours, phone, website, coordinates]   # used only when autonomous is true
+  never_auto: [type_change, identity_change]
+  allowed_tables: [listings]     # tables this job (and review-changes, for its proposals) may write to
+  report: "chat"                 # or a file, e.g. notes/exd/listing-check/YYYY-MM-DD.md
+  log_storage: file              # file = run log in notes/<slug>/listing-check/ (no setup); table = listing_check_log + listing_place_ids tables
+  coming_soon_column: ""         # your "coming soon" flag column, if the table has one (checked every run); "" = none
+  temporarily_closed_column: ""  # your "temporarily closed" flag column, if any; "" = none
+  untrusted_domains: [competitor-directory.com]   # never evidence; your own domain (from url:) is always added automatically
+  google_places_key_env: ""      # optional paid Google Places API; blank = free lookup script
+  types:
+    - table: listings              # change to your table name
+      label: touchless car wash
+      type_keywords: ["touchless", "no brushes"]   # words that prove a listing is the right type
+      active_filter: "is_closed is not true"   # change is_closed to your real closed column (same as database.closed_column), or delete this line
+
+inbox_triage:
+  settings_done: false
+  auto_add: false                # true = insert verified new listings; false = proposals in pending.md
+  autonomous: false
+  max_actions_per_run: 15        # emails researched deeply per run; the rest wait
+  log_storage: file              # file = notes/<slug>/inbox-triage/log.jsonl (no setup); table = inbox_triage_log
+  coming_soon: true              # false for job boards / lead gen: alerts become owner notes, no "coming soon" listings
+  photo_preference: [own_site_or_social, streetview_storefront, none]
+  photo_bucket: listing-photos   # public Supabase Storage bucket
+  photo_folder: listings         # folder inside the bucket
+  allowed_tables: [listings]     # tables this job (and review-changes, for its proposals) may write to
+
+lead_routing:
+  auto_send: false             # true = send without approval (first ever run still asks once)
+  daily_send_cap: 20
+  lead_max_age_days: 14        # never route leads older than this
+  min_days_before: 2           # skip requests needed too soon or already past
+  auto_reply_interested: false # true = reply to interested businesses automatically
+  route_leads_created_after: ""   # optional ISO time; older leads are ignored
+  lead_fields:                 # columns describing a request, shown to businesses as "Label: value"
+    - { name: service, label: "Looking for", required: true }
+    - { name: preferred_date, label: "Date", required: false }
+    - { name: budget, label: "Budget", required: false }
+  phone_country: US
+  needed_by_field: preferred_date   # optional: the date the customer needs it by; leads past it are skipped
+  wording:                     # fills the email templates
+    site_name: Example Directory          # default: the config name
+    niche_plural: car washes              # what the directory lists, plural
+    request_type: car wash                # what a lead asks for, short
+    owner_first_name: Sam                 # signs the emails
+    ask_phrase: "asked for a quote"       # what the customer did, used in the first email
+  sender:
+    method: smtp               # smtp (recommended for cold first contact) | resend
+    from_name: ""              # the name businesses see; default "<owner_first_name> at <site_name>"
+    from_email: ""             # the site's mailbox address
+    physical_address: ""       # required by anti-spam law in commercial emails
+    smtp_host: smtp.gmail.com
+    smtp_port: 587
+    imap_host: imap.gmail.com
+    password_env: EXD_MAIL_PASSWORD   # the only secret
+  offer:
+    first_lead_free: true
+    price_per_lead_usd: TBD
+    unlock_url_template: TBD   # e.g. https://example.com/leads/{lead_id}/unlock
+  timing:
+    followup_after_hours: 24
+    reroute_after_hours: 48
+  reroute:
+    radius_miles: [25, 50]
+    max_vendors_per_round: 3
+    consent_column: share_with_other_listings   # your column name; only reroute if true
+  tables:                      # change each to your real table / column names, or delete lines you don't have
+    leads: leads
+    lead_status: { column: status, new: new, sent: sent, rejected: rejected, review: review, responded: responded }   # optionally add draft: draft
+    lead_origin_listing_column: original_listing_id
+    lead_notes_column: notes      # optional: delete if your leads table has no notes column
+    listings: listings
+    listing_lat: latitude      # your listings table latitude column (change to your column name)
+    listing_lng: longitude     # your listings table longitude column
+    active_filter: ""          # e.g. "is_active=eq.true" or "permanently_closed=eq.false"; empty = all listings
+    vendor_emails: business_emails   # filter is_routable, order by send_order
+    distributions: lead_distributions  # optional, leave blank if none; status words: draft, sent, replied_yes, replied_no, bounced
+
+page_copy_refresh:
+  settings_done: false
+  table: page_copy               # the copy table; if yours already exists with other columns, map them below instead of creating one
+  columns: { key: page_key, type: page_type, content: content }   # change to your column names
+  every_months: 4                # one full pass every N months, never weekly
+  scope: all                     # all | a list of pages | "at least 3 listings"
+  approval: first_run_only       # first_run_only | every_run
+  auto_apply: false              # true after the owner approves the first run
+  autonomous: false
+  brand_statement_field: closing
+  brand_promise: "the most accurate and up-to-date car wash finder in every state"
+  promote: []                    # the site's own products to mention where they exist, e.g. [{name: "printable guide", count_query: "..."}]
+  tokens: ["{count}", "{state}", "{locations}"]
+  token_meanings: { "{count}": "number of active listings", "{state}": "state name", "{locations}": "the word location/locations" }
+  page_types:
+    state:
+      url_pattern: "https://example.com/car-washes/<state-slug>"
+      fields: [intro, closing]
+
+content:
+  brand_name: "Example Directory"
+  sitemap: https://example.com/sitemap.xml
+  money_pages: ["/listings/", "/get-quotes"]   # URL paths that bring leads or revenue
+  goals: [leads, traffic]   # leads | traffic | ai_citations | backlinks, in priority order
+  api_budget: { max_calls_per_run: 5 }   # only if DataForSEO / Ahrefs is connected
+  max_articles_per_month: 4
+  max_local_per_month: 2      # state or city specific articles
+  min_listings_for_local: 15  # an area needs this many listings for a local article
+  min_score: 9                # out of 12
+  min_days_between_research: 30
+  publish: drafts_only        # drafts_only | supabase_articles | wordpress
+  blog_path: /blog
+  approval: first_article_only   # first_article_only | every_article
+  publish_cadence: weekly
+  ai_images: false
+  settings_done: false        # Step 0 asks the setup questions once, then sets this to true
+  notify: webui                # where approval messages go: webui | telegram | email
+  topics: { core: ["car washes"], adjacent: [] }   # adjacent topics only if the owner allows them
+  never_link: ["competitor-directory.com"]         # competitors and other directories
+  voice_page: /                # page whose tone articles match
+  revalidate_url: https://example.com/api/revalidate   # optional: makes new articles live immediately
+  revalidate_secret_env: EXD_REVALIDATE_SECRET
+
+broken_links_and_seo_errors:
+  settings_done: false
+  money_pages: ["/", "/car-washes"]
+  can_edit_db: false            # true = fix titles/text/links stored in the database; false = suggest only
+  cadence: monthly
+
+internal_links:
+  settings_done: false
+  can_edit_db: false            # true = add links inside article text in the database (never page-copy-refresh fields)
+  targets:                      # pages that deserve more links, and what people search for them
+    /car-washes: { phrases: ["car washes", "car wash near me"], anchor: "car washes near you" }
+  cadence: monthly
+
+keep_pages_up_to_date:
+  settings_done: false
+  update_db_pages: false        # true = update database pages myself; false = ask first (pending.md)
+  allowed_tables: []            # tables holding page text it may update, e.g. [articles]
+  notify: monthly_summary       # monthly_summary | every_change
+  # the page list lives in notes/<slug>/keep-pages-up-to-date.yaml
+
+jobs:                            # all off until onboarding schedules them with the owner (then enabled: true)
+  listing-check:                 { enabled: false, cadence: weekly, day: monday }
+  inbox-triage:                  { enabled: false, cadence: weekly, day: monday }
+  lead-routing:                  { enabled: false, cadence: every 2 hours }
+  page-copy-refresh:             { enabled: false, cadence: every 4 months }
+  content-opportunities:         { enabled: false, cadence: weekly }
+  broken-links-and-seo-errors:   { enabled: false, cadence: monthly }
+  internal-links:                { enabled: false, cadence: monthly }
+  keep-pages-up-to-date:         { enabled: false, cadence: weekly }   # only checks pages that are due
+
+never_touch:
+  - "Featured or paying listings without asking"
