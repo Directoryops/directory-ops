@@ -56,6 +56,9 @@ def main():
     ap.add_argument("--sleep", type=float, default=0.6)
     ap.add_argument("--max-minutes", type=float, default=20, help="stop asking for new suggestions after this many minutes")
     a = ap.parse_args()
+    if getattr(a, "out", None):  # create the output folder (notes/<site>/...) if it is new
+        import os as _os
+        _os.makedirs(_os.path.dirname(_os.path.abspath(a.out)), exist_ok=True)
     t0, net_fails, rate_limits, stopped = time.time(), 0, 0, 0
     seeds = read_seeds(a.seeds_file)
     hits, meta, errors, calls = {}, {}, 0, 0

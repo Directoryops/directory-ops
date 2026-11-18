@@ -425,6 +425,9 @@ def main():
     o.add_argument("--out", required=True)
     o.add_argument("--max-minutes", type=float, default=15, help="stop checking old URLs after this many minutes")
     a = ap.parse_args()
+    if getattr(a, "out", None):  # create the output folder (notes/<site>/...) if it is new
+        import os as _os
+        _os.makedirs(_os.path.dirname(_os.path.abspath(a.out)), exist_ok=True)
     if a.max_minutes:
         DEADLINE[0] = time.time() + a.max_minutes * 60
     if a.cmd == "crawl":

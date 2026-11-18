@@ -189,6 +189,9 @@ def main():
     ap.add_argument("site")
     ap.add_argument("--out", default="")
     a = ap.parse_args()
+    if getattr(a, "out", None):  # create the output folder (notes/<site>/...) if it is new
+        import os as _os
+        _os.makedirs(_os.path.dirname(_os.path.abspath(a.out)), exist_ok=True)
     t0 = time.time()
     site = a.site if a.site.startswith("http") else "https://" + a.site
     st, final, html, headers = fetch_full(site)

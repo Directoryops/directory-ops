@@ -275,6 +275,9 @@ def main():
     ap.add_argument("--max-minutes", type=float, default=15, help="stop starting new pages after this many minutes")
     ap.add_argument("--resume", action="store_true", help="with --out: keep earlier results and skip URLs already in it")
     a = ap.parse_args()
+    if getattr(a, "out", None):  # create the output folder (notes/<site>/...) if it is new
+        import os as _os
+        _os.makedirs(_os.path.dirname(_os.path.abspath(a.out)), exist_ok=True)
     items = []
     if a.url:
         items = [(None, a.url)]

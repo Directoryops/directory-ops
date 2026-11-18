@@ -113,6 +113,9 @@ def main():
     ap.add_argument("--min-demand", type=float, default=None,
                     help="drop ideas below this total demand (default: 3 in free mode, 50 in data mode)")
     a = ap.parse_args()
+    if getattr(a, "out", None):  # create the output folder (notes/<site>/...) if it is new
+        import os as _os
+        _os.makedirs(_os.path.dirname(_os.path.abspath(a.out)), exist_ok=True)
     seeds = read_seeds(a.seeds_file)
     vocab = set(w for _, s in seeds for w in s.split())
 

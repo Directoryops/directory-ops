@@ -6,8 +6,10 @@ Keeps your listings accurate, finds the content that brings traffic, and turns l
 It runs on **Hermes Agent** (an AI assistant you host on Hostinger), you talk to it in plain English, and **it asks before it changes anything.**
 
 <p>
-  <a href="https://www.hostinger.com/applications/hermes-agent/1"><img src="https://assets.hostinger.com/vps/deploy.svg" alt="Deploy Hermes on Hostinger" height="40"></a>
+  <a href="https://www.hostinger.com/freyhermes"><img src="https://assets.hostinger.com/vps/deploy.svg" alt="Deploy Hermes on Hostinger" height="40"></a>
 </p>
+
+Use code **FREYHERMES** at checkout for a discount.
 
 **No coding. About 15 minutes to set up. Works with almost any directory** (plasma centers, car washes, venues, dentists, job boards, anything with listings).
 
@@ -41,7 +43,7 @@ You install it once, say **"Onboard a site"**, and Hermes:
 
 ## Quick start
 
-1. **Get Hermes on Hostinger.** Click the button above and choose the **Hermes Agent** app.
+1. **Get Hermes on Hostinger.** Click the button above, pick a plan, and enter code **FREYHERMES** at checkout.
 2. **Pick a smart model.** In the Hermes chat, click the model name at the bottom and choose **Claude Sonnet** (newest version). These helpers follow detailed playbooks; smaller models skip steps.
 3. **Install.** Start a new chat and paste the install message from **[INSTALL.md](INSTALL.md)** (about 2 minutes).
 4. **Start.** Start another new chat and say:

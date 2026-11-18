@@ -47,6 +47,9 @@ def main():
     ap.add_argument("scored"); ap.add_argument("--site", required=True)
     ap.add_argument("--top", type=int, default=5); ap.add_argument("--out", default="tool-pages-report.md")
     a = ap.parse_args()
+    if getattr(a, "out", None):  # create the output folder (notes/<site>/...) if it is new
+        import os as _os
+        _os.makedirs(_os.path.dirname(_os.path.abspath(a.out)), exist_ok=True)
     R = [r for r in csv.DictReader(open(a.scored, encoding="utf-8")) if r["confidence"] != "NOT CHECKED"][:a.top]
     if not R: raise SystemExit("ERROR: no checked ideas in scored.csv. Do steps 5-7 first.")
     data_mode = R[0]["demand_source"] == "volume"

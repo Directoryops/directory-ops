@@ -407,6 +407,9 @@ def main():
     ap.add_argument("--max-minutes", type=float, default=30, help="stop starting new sites after this many minutes "
                     "(rerun with --skip-done to continue)")
     a = ap.parse_args()
+    if getattr(a, "out", None):  # create the output folder (notes/<site>/...) if it is new
+        import os as _os
+        _os.makedirs(_os.path.dirname(_os.path.abspath(a.out)), exist_ok=True)
     rows = load_rows(a.listings)
     done = set()
     if a.skip_done and os.path.exists(a.out):

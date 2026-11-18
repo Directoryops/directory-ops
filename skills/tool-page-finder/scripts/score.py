@@ -124,6 +124,9 @@ def main():
     ap.add_argument("--decisions"); ap.add_argument("--serp"); ap.add_argument("--trends")
     ap.add_argument("--make-serp-template", type=int, metavar="N")
     a = ap.parse_args()
+    if getattr(a, "out", None):  # create the output folder (notes/<site>/...) if it is new
+        import os as _os
+        _os.makedirs(_os.path.dirname(_os.path.abspath(a.out)), exist_ok=True)
     C = list(csv.DictReader(open(a.candidates, encoding="utf-8")))
     if not C: sys.exit("ERROR: candidates.csv is empty")
     drop = read_decisions(a.decisions, C)
