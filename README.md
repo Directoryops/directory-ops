@@ -6,7 +6,7 @@ Keeps your listings accurate, finds the content that brings traffic, and turns l
 It runs on **Hermes Agent** (an AI assistant you host on Hostinger), you talk to it in plain English, and **it asks before it changes anything.**
 
 <p>
-  <a href="HOSTINGER_LINK"><img src="https://assets.hostinger.com/vps/deploy.svg" alt="Deploy Hermes on Hostinger" height="40"></a>
+  <a href="https://www.hostinger.com/applications/hermes-agent/1"><img src="https://assets.hostinger.com/vps/deploy.svg" alt="Deploy Hermes on Hostinger" height="40"></a>
 </p>
 
 **No coding. About 15 minutes to set up. Works with almost any directory** (plasma centers, car washes, venues, dentists, job boards, anything with listings).
@@ -121,6 +121,12 @@ Your website stays where it is. Hermes reads your site and your listings (Supaba
 ## Updating
 
 New versions come out over time. Start a new chat and paste the update message from [INSTALL.md](INSTALL.md#updating-later). Your settings and notes are never touched.
+
+## Built by
+
+directory-ops is built by **Frey**, who runs a portfolio of directory websites and uses these exact helpers on them every week.
+
+**Need links too?** Backlinks are the one part of directory SEO an agent can't do on its own: it takes real relationships with real site owners. Frey is also the founder of **[HeyLinks](https://www.heylinks.ai)**, done-for-you link building for directories and niche sites: relevant backlinks and link inserts on real sites in your niche. No PBNs, no spammy sites, every link chosen for relevance.
 
 ## License
 
